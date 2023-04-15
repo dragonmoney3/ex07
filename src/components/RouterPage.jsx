@@ -9,13 +9,14 @@ import React from 'react'
 import { Link, Route, Switch } from 'react-router-dom';
 import HomePage from './HomePage';
 import BookPage from './BookPage';
+import LocalPage from './LocalPage';
 
 const RouterPage = () => {
     return (
         <>
             <Navbar bg="light" expand="lg">
                 <Container fluid>
-                    <Link to="/book">LOGO</Link>
+                    <Navbar.Brand href="/books">Logo</Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
                         <Nav
@@ -23,15 +24,17 @@ const RouterPage = () => {
                             style={{ maxHeight: '100px' }}
                             navbarScroll
                         >
-                            <Link to="/">홈</Link>
-                            <Link to="/book">도서검색</Link>
+                            <Link to="/">Home</Link>
+                            <Link to="/book">도서관리</Link>
+                            <Link to="/local">지역관리</Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
             <Switch>
-                <Route path="/" component={HomePage} exact={true}></Route>
-                <Route path="/book" component={BookPage}></Route>
+                <Route path="/" component={HomePage} exact={true}/>
+                <Route path="/book" component={BookPage} />
+                <Route path="/local" component={LocalPage} />
             </Switch>
         </>
     )
